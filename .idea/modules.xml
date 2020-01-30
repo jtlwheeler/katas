@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/katas.iml" filepath="$PROJECT_DIR$/.idea/katas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.iml" filepath="$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.test.iml" filepath="$PROJECT_DIR$/.idea/modules/roman-numeral-calculator.test.iml" />
     </modules>
   </component>
 </project>
