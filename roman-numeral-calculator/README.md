@@ -11,4 +11,4 @@
 ### User Story: Addition
 As a Roman bookkeeper, I want to be able to add two numbers together; so that I can do my work faster with fewer mathematical errors.  
 ### User Story: Subtraction 
-As a Roman bookkeeper, I want to
+As a Roman bookkeeper, I want to be able to subtract one number from another; so that I can do my work faster and with fewer mathematical errors.
