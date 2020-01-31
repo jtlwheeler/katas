@@ -3,7 +3,12 @@ class Bowling {
         var sum = 0
 
         for (roll in gameResults) {
-            sum += roll.toString().toInt()
+            sum += if (roll == '/') {
+                10
+            } else {
+                roll.toString().toInt()
+            }
+
         }
 
         return sum
