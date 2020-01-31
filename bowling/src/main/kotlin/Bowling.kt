@@ -6,18 +6,19 @@ class Bowling {
 
             val currentRollValue = toNumericValue(roll)
 
-            if (index < gameResult.length - 1 && gameResult[index + 1] == '/') {
+            val currentFrameIsSpare = index < gameResult.length - 1 && gameResult[index + 1] == '/'
+            if (currentFrameIsSpare) {
                 continue
             }
 
             sum += currentRollValue
-            sum += addBonus(roll, gameResult, index)
+            sum += calculateBonus(roll, gameResult, index)
         }
 
         return sum
     }
 
-    private fun addBonus(roll: Char, gameResults: String, index: Int): Int {
+    private fun calculateBonus(roll: Char, gameResults: String, index: Int): Int {
         return when (roll) {
             'X' -> {
                 calculateStrikeBonus(gameResults, index)
@@ -34,21 +35,26 @@ class Bowling {
     private fun calculateSpareBonus(gameResult: String, index: Int) = toNumericValue(gameResult[index + 1])
 
     private fun calculateStrikeBonus(gameResult: String, index: Int): Int {
-        if (index >= 18) {
+        val isBonusFrame = index >= 18
+        if (isBonusFrame) {
             return 0
         }
 
-        val nextRoll = gameResult[index + 2]
+        val firstRollOfNextFrame = gameResult[index + 2]
 
         val nextFrameIsSpare = gameResult[index + 3] == '/'
-        return if (nextFrameIsSpare) {
-            10
-        } else if (nextRoll == 'X') {
-            val nextNextRoll = gameResult[index + 4]
-            toNumericValue(nextRoll) + toNumericValue(nextNextRoll)
-        } else {
-            val twoRollsAhead = gameResult[index + 2]
-            toNumericValue(nextRoll) + toNumericValue(twoRollsAhead)
+        return when {
+            nextFrameIsSpare -> {
+                10
+            }
+            firstRollOfNextFrame == 'X' -> {
+                val nextNextRoll = gameResult[index + 4]
+                toNumericValue(firstRollOfNextFrame) + toNumericValue(nextNextRoll)
+            }
+            else -> {
+                val twoRollsAhead = gameResult[index + 2]
+                toNumericValue(firstRollOfNextFrame) + toNumericValue(twoRollsAhead)
+            }
         }
     }
 
