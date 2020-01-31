@@ -25,12 +25,22 @@ internal class BowlingTest {
 
     @Test
     fun `when all spares are rolled on the second roll of each frame, then the final score is 100`() {
-        val gameResults = "0/0/0/0/0/0/0/0/0/0/"
+        val gameResults = "0/0/0/0/0/0/0/0/0/0/0"
 
         val bowling = Bowling()
         val score = bowling.scoreGame(gameResults)
 
         assertThat(score).isEqualTo(100)
+    }
+
+    @Test
+    fun `when spares are rolled, then the final score is calculated properly`() {
+        val gameResults = "1/1/1/1/1/1/1/1/1/1/1"
+
+        val bowling = Bowling()
+        val score = bowling.scoreGame(gameResults)
+
+        assertThat(score).isEqualTo(121)
     }
 
 }
