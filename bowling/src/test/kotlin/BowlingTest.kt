@@ -43,4 +43,14 @@ internal class BowlingTest {
         assertThat(score).isEqualTo(121)
     }
 
+    @Test
+    fun `when a strike is rolled, then the next 2 rolls are added to the score`() {
+        val gameResults = "0X110000000000000000"
+
+        val bowling = Bowling()
+        val score = bowling.scoreGame(gameResults)
+
+        assertThat(score).isEqualTo(14)
+    }
+
 }
