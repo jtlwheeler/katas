@@ -53,4 +53,14 @@ internal class BowlingTest {
         assertThat(score).isEqualTo(14)
     }
 
+    @Test
+    fun `when a perfect game is rolled, then the final score is 300`() {
+        val gameResults = "X0X0X0X0X0X0X0X0X0X0XX"
+
+        val bowling = Bowling()
+        val score = bowling.scoreGame(gameResults)
+
+        assertThat(score).isEqualTo(300)
+    }
+
 }
