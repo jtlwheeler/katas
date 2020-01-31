@@ -40,7 +40,7 @@ internal class BowlingTest {
         val bowling = Bowling()
         val score = bowling.scoreGame(gameResults)
 
-        assertThat(score).isEqualTo(121)
+        assertThat(score).isEqualTo(111)
     }
 
     @Test
@@ -61,6 +61,16 @@ internal class BowlingTest {
         val score = bowling.scoreGame(gameResults)
 
         assertThat(score).isEqualTo(300)
+    }
+
+    @Test
+    fun `when a strike is followed by a spare, then the final score is calculated properly`() {
+        val gameResults = "X01/0000000000000000"
+
+        val bowling = Bowling()
+        val score = bowling.scoreGame(gameResults)
+
+        assertThat(score).isEqualTo(30)
     }
 
 }

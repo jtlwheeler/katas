@@ -6,11 +6,12 @@ class Bowling {
 
             val currentRollValue = toNumericValue(roll)
 
-            sum += currentRollValue
-
-            if (index < 20) {
-                sum += addBonus(roll, gameResult, index)
+            if (index < gameResult.length - 1 && gameResult[index + 1] == '/') {
+                continue
             }
+
+            sum += currentRollValue
+            sum += addBonus(roll, gameResult, index)
         }
 
         return sum
@@ -38,7 +39,11 @@ class Bowling {
         }
 
         val nextRoll = gameResult[index + 2]
-        return if (nextRoll == 'X') {
+
+        val nextFrameIsSpare = gameResult[index + 3] == '/'
+        return if (nextFrameIsSpare) {
+            10
+        } else if (nextRoll == 'X') {
             val nextNextRoll = gameResult[index + 4]
             toNumericValue(nextRoll) + toNumericValue(nextNextRoll)
         } else {
