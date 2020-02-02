@@ -1,5 +1,24 @@
 # Bowling Kata
 
+## Approach
+This was the first time doing the bowling kata. My approach was to complete the kata and limit my time debating on the next step. This led to a very procedural implementation.
+
+### Retro
+
+#### Good
+- I completed the kata.
+- The refactoring step made the code much easier to understand.
+- Kotlin.
+
+#### Bad
+- Took longer than I anticipated.
+- IntelliJ doesn't like it when you initialize Gradle from shell.
+- The "do whatever first pops into your head" approach led to a lot of difficult to understand code even for me after just writing the code.
+
+#### Next Time
+- Apply better OOP design.
+- Use IntelliJ to create the Gradle project to save time.
+
 ## Problem Description
 Create a program, which, given a valid sequence of rolls for one line of American Ten-Pin Bowling, produces the total score for the game. Here are some things that the program will not do:
 
